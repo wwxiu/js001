@@ -1,0 +1,63 @@
+
+<!DOCTYPE html>
+<html>
+<meta charset="utf-8">
+<head>
+	<title>task01</title>
+</head>
+<body>
+	<br/>
+	<label>请输入北京今天空气质量：<input type="text" id="api-input"></label>
+	<button id="button">确认填写</button>
+	<div>您输入的值是：<span id="api-display">尚没有输入</span></div>
+</body>
+<!--
+<script type="text/javascript">
+	function dragon(){
+		var txt = document.getElementById("api-input");
+		var inp = document.getElementById("api-display");
+		inp.innerHTML = txt.value;
+	}
+
+</script>
+-->
+<!--<script type="text/javascript">
+	var EventUtil={
+	   	  addHandler:function(element,type,handler){ //添加事件
+	      if(element.addEventListener){ 
+	         element.addEventListener(type,handler,false);  //使用DOM2级方法添加事件
+	      }else if(element.attachEvent){                    //使用IE方法添加事件
+	         element.attachEvent("on"+type,handler);
+	      }else{
+	         element["on"+type]=handler;          //使用DOM0级方法添加事件
+	      }
+   }
+};
+</script>-->
+<script type="text/javascript">
+		var EventUtil ={
+		addHandler:function(element, type, handler){
+			if(element.addEventListener){
+				element.addEventListener(type,handler,false);
+			}else if(element.attachEvent){
+				element.attachEvent("on"+type,handler);
+			}else{
+				element["on"+type] = handler;
+			}
+		}
+	};
+	(function(){
+	
+		var btn = document.getElementById("button");
+		var input = document.getElementById("api-input");
+		var display =document.getElementById("api-display");
+		var handler = function(){
+			display.innerHTML = input.value;
+		};
+		EventUtil.addHandler(btn,"click",handler);
+
+	})();
+
+	
+</script>
+</html>
